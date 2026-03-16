@@ -136,3 +136,38 @@ h1{
 body.darkmode {
     background-color: rgb(10, 10, 10);
 }
+
+.conversor{
+    position: absolute;
+    top: 15px;
+    right: 110px;
+    display: grid;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(107, 7, 7);
+    background-color: rgb(255, 112, 112);
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    user-select: none;
+}
+
+h3{
+    display: none;
+    text-align: center;
+}
+
+h3.visible{
+    display: block;
+    background-color: rgb(255, 139, 139);
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.conversor-titulo{
+    cursor: pointer;
+}

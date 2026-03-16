@@ -1,6 +1,8 @@
 const pantalla = document.querySelector('.resultado');
 const botones = document.querySelectorAll('h2');
 const modonoche = document.querySelector('.modonoche');
+const conversor = document.querySelector('.conversor-titulo');
+const opciones = document.querySelectorAll('.conversor h3');
 
 var hayresultado = false;
 var resultadoanterior = 0;
@@ -72,4 +74,10 @@ botones.forEach(boton => {
 
 modonoche.addEventListener("click", () => {
     document.body.classList.toggle("darkmode");
+});
+
+conversor.addEventListener("click", () => {
+    opciones.forEach(opcion => {
+        opcion.classList.toggle("visible");
+    });
 });
