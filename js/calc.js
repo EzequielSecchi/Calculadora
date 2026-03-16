@@ -32,6 +32,9 @@ botones.forEach(boton => {
         else if(boton.classList.contains("borrar")){
             if(pantalla.textContent.length === 1 || (pantalla.textContent.length === 2 && pantalla.textContent.startsWith("-"))){
                 pantalla.textContent = "0";
+            }else if (hayresultado){
+                pantalla.textContent = "0";
+                hayresultado = false;
             }else{
                 pantalla.textContent = pantalla.textContent.slice(0, -1);
             }
