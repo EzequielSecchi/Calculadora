@@ -94,8 +94,18 @@ h1{
     font-weight: bold;
     text-align: center;
     line-height: 50px;
+
 }
 
 .reset, .dividido, .multiplicado, .resta, .suma, .igual, .borrar, .diezpor, .ANS {
     background-color: rgb(255, 100, 100);
+}
+
+.basecalculadora h2:hover {
+    background-color: rgb(255, 70, 70);
+}
+
+.basecalculadora h2:active {
+    background-color: rgb(255, 50, 50);
+    transform: translateY(1px);
 }

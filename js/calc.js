@@ -12,7 +12,9 @@ botones.forEach(boton => {
 
         if (boton.classList.contains("reset")){
             pantalla.textContent = "0";
-        }else if (boton.classList.contains("igual")){
+        }
+        
+        else if (boton.classList.contains("igual")){
             try {
                 pantalla.textContent = eval(pantalla.textContent);
                 hayresultado = true;
@@ -20,27 +22,42 @@ botones.forEach(boton => {
             } catch (error) {
                 pantalla.textContent = "Error";
             }
-        }else if (boton.classList.contains("diezpor")){
+        }
+        
+        else if (boton.classList.contains("diezpor")){
             pantalla.textContent += "*10**";
-        }else if(boton.classList.contains("borrar")){
+            hayresultado = false;
+        }
+        
+        else if(boton.classList.contains("borrar")){
             if(pantalla.textContent.length === 1 || (pantalla.textContent.length === 2 && pantalla.textContent.startsWith("-"))){
                 pantalla.textContent = "0";
             }else{
                 pantalla.textContent = pantalla.textContent.slice(0, -1);
             }
-        }else if(boton.classList.contains("ANS")){
-            pantalla.textContent += resultadoanterior;
         }
+        
+        else if(boton.classList.contains("ANS")){
+            if(hayresultado){
+                pantalla.textContent = resultadoanterior;
+                hayresultado = false;
+            }else{
+                pantalla.textContent += resultadoanterior;
+            }
+        }
+        
         else{
             const texto = boton.textContent.trim();
-            if (hayresultado) {
+            if (hayresultado && !boton.classList.contains("suma") && !boton.classList.contains("resta") && !boton.classList.contains("multiplicado") && !boton.classList.contains("dividido")){
                 pantalla.textContent = texto;
                 hayresultado = false;
             } else {
                 if (pantalla.textContent === "0") {
                     pantalla.textContent = texto;
+                    hayresultado = false;
                 } else {
                     pantalla.textContent += texto;
+                    hayresultado = false;
                 }
             }
         }
