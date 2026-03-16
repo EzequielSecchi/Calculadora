@@ -58,6 +58,7 @@ body {
   place-items: center;
   height: 100vh;
   margin: 0;
+  transition: background-color 0.6s ease;
 }
 
 
@@ -109,4 +110,29 @@ h1{
 .basecalculadora h2:active {
     background-color: rgb(255, 50, 50);
     transform: translateY(1px);
+}
+
+.modonoche{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    position: absolute;
+    top: 15px;
+    left: 110px;
+}
+
+.modonoche img{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.modonoche img:active {
+    opacity: 0.5;
+    transform: translateY(1px);
+}
+
+body.darkmode {
+    background-color: rgb(10, 10, 10);
 }

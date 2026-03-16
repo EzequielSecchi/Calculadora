@@ -1,5 +1,6 @@
 const pantalla = document.querySelector('.resultado');
 const botones = document.querySelectorAll('h2');
+const modonoche = document.querySelector('.modonoche');
 
 var hayresultado = false;
 var resultadoanterior = 0;
@@ -65,4 +66,9 @@ botones.forEach(boton => {
             }
         }
     });
+});
+
+
+modonoche.addEventListener("click", () => {
+    document.body.classList.toggle("darkmode");
 });
