@@ -65,6 +65,7 @@ botones.forEach(boton => {
                 }
             }
         }
+        new Audio('sonidos/mouse-click-sound-effect.mp3').play();
     });
 });
 
