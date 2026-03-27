@@ -1,8 +1,14 @@
 const pantalla = document.querySelector('.resultado');
-const botones = document.querySelectorAll('h2');
+const botones = document.querySelectorAll('.basecalculadora h2');
 const modonoche = document.querySelector('.modonoche');
 const conversor = document.querySelector('.conversor-titulo');
 const opciones = document.querySelectorAll('.conversor h3');
+const conversorLongitud = document.querySelector('.longitud');
+const longitudConversor = document.querySelector('.longitud-conversor');
+const longitudInput = document.querySelector('.longitud-input');
+const longitudUnidades = document.querySelector('.longitud-unidades');
+const longitudBoton = document.querySelector('.longitud-convertir');
+const longitudResultado = document.querySelector('.longitud-resultado');
 
 var hayresultado = false;
 var resultadoanterior = 0;
@@ -76,8 +82,60 @@ modonoche.addEventListener("click", () => {
     document.body.classList.toggle("darkmode");
 });
 
+function convertirLongitud(valor, unidad) {
+    const factores = {
+        metros: 1,
+        kilometros: 1000,
+        millas: 1609.34,
+        pies: 0.3048
+    };
+
+    const valorEnMetros = valor * factores[unidad];
+
+    return {
+        metros: valorEnMetros,
+        kilometros: valorEnMetros / factores.kilometros,
+        millas: valorEnMetros / factores.millas,
+        pies: valorEnMetros / factores.pies
+    };
+}
+
+longitudBoton.addEventListener("click", () => {
+    const valor = parseFloat(longitudInput.value);
+    const unidad = longitudUnidades.value;
+
+    if (Number.isNaN(valor)) {
+        longitudResultado.textContent = "Ingrese un número válido";
+        return;
+    }
+
+    const resultados = convertirLongitud(valor, unidad);
+
+    const etiquetas = {
+        metros: "metros",
+        kilometros: "kilómetros",
+        millas: "millas",
+        pies: "pies"
+    };
+
+    longitudResultado.textContent =
+        `${valor} ${etiquetas[unidad]} equivalen a:\n` +
+        `${resultados.metros.toFixed(4)} metros · ` +
+        `${resultados.kilometros.toFixed(4)} kilómetros · ` +
+        `${resultados.millas.toFixed(4)} millas · ` +
+        `${resultados.pies.toFixed(4)} pies`;
+});
+
 conversor.addEventListener("click", () => {
     opciones.forEach(opcion => {
         opcion.classList.toggle("visible");
     });
+    if (!opciones[0].classList.contains("visible")) {
+        longitudConversor.classList.remove("visible");
+    }
+});
+
+conversorLongitud.addEventListener("click", (event) => {
+    event.stopPropagation();
+    longitudConversor.classList.toggle("visible");
 });

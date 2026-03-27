@@ -154,9 +154,31 @@ body.darkmode {
     user-select: none;
 }
 
+.longitud-conversor{
+    display: none;
+}
+
+.longitud-conversor.visible{
+    display: block;
+    position: absolute;
+    top: 60px;
+    right: 110px;
+    background-color: rgb(255, 112, 112);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
 h3{
     display: none;
     text-align: center;
+}
+
+.longitud-resultado {
+    display: block;
+    margin-top: 10px;
+    white-space: pre-line;
+    text-align: left;
 }
 
 h3.visible{
