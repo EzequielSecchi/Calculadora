@@ -15,4 +15,5 @@ Con el boton AC, se borra el resultado en el visor. Con el boton DEL, se borra s
 ## Implementacion del modo oscuro
 Se agrego un boton que permite poner el fondo en modo oscuro o claro, dependiendo las preferencias del usuario
 
-
+## Implementacion del conversor de longitud
+Ahora se puede convertir valores de longitud
